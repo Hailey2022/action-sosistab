@@ -12,9 +12,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: build
-        run: git clone https://github.com/geph-official/sosistab.git && cd sosistab && cargo build --release --bins
+        run: cd && git clone https://github.com/geph-official/sosistab.git && cd sosistab && cargo build --release --bins
         
       - uses: actions/upload-artifact@v3
         with:
           name: upload
-          path: sosistab/target/release/sosisbench
+          path: ~/sosistab/target/release/sosisbench
