@@ -10,7 +10,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
       - name: build
         run: cd && git clone https://github.com/geph-official/sosistab.git && cd sosistab && cargo build --release
         
