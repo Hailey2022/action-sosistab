@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build
-        run: cd && git clone https://github.com/geph-official/sosistab.git && cd sosistab && cargo build --release
+        run: cd && cargo install cross && git clone https://github.com/geph-official/sosistab.git && cd sosistab && cross build --release --target x86_64-unknown-linux-musl
         
       - uses: actions/upload-artifact@v3
         with:
-          name: upload
-          path: ~/sosistab/target/release/sosisbench
+          name: ubuntu
+          path: ~/sosistab/target/x86_64-unknown-linux-musl/release/sosisbench
