@@ -1,0 +1,19 @@
+name: android
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: build
+        run: cd && cargo install cross && git clone https://github.com/geph-official/sosistab.git && cd sosistab && cross build --release --target aarch64-linux-android
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          name: upload
+          path: ~/sosistab/target/aarch64-linux-android/release/sosisbench
